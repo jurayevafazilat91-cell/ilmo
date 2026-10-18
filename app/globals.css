@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #faf6ec;
+  --color-card: #fffdf8;
+  --color-line: #e8e0cc;
+  --color-ink: #14231b;
+  --color-muted: #56645b;
+  --color-forest: #143d2c;
+  --color-moss: #1c4a36;
+  --color-sage: #e4ede2;
+  --color-gold: #c9a24a;
+  --color-gold-soft: #f1e6c8;
+  --color-xato: #c2461f;
+  --color-fixed: #1f7a5c;
+  /* System fonts: no network fetch, so the demo renders on weak or offline connections. */
+  --font-sans: "Segoe UI", system-ui, -apple-system, Roboto, "Noto Sans", sans-serif;
+  --font-serif: Georgia, "Noto Serif", "Times New Roman", serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.katex {
+  font-size: 1.08em;
+}
+
+/* The one orchestrated moment: a fixed strand reconnects. */
+@keyframes reconnect {
+  from { stroke-dashoffset: 40; }
+  to { stroke-dashoffset: 0; }
+}
+.strand-fixed {
+  stroke-dasharray: 40;
+  animation: reconnect 900ms ease-out 400ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
